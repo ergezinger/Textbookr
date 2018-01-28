@@ -19,7 +19,7 @@ def parse_results(html, keyword):
             title = title.get_text()
             description = description.get_text()
             if link != '#':
-                found_results.append({'keyword': keyword, 'rank': rank, 'title': title, 'description': description})
+                found_results.append({'keyword': keyword, 'link': link, 'rank': rank, 'title': title, 'description': description})
                 rank += 1
     return found_results
 
@@ -44,5 +44,5 @@ keyword, html = fetch_results(searchTerm, 20, 'en')
 results = parse_results(html, keyword)
 
 for result in results:
-	print(result)
+	print(result['link'])
 	print()
